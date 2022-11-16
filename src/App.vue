@@ -1,6 +1,9 @@
+<script></script>
 
 <template>
+  <header>Deck</header>
 
+  <main>Salut!</main>
 </template>
 
 <style scoped>
