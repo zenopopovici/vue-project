@@ -1,9 +1,13 @@
-<script></script>
+<script setup>
+import TheDeck from "./components/TheDeck.vue";
+</script>
 
 <template>
-  <header>Deck</header>
+  <header><h1>Deck App</h1></header>
 
-  <main>Salut!</main>
+  <main>
+    <TheDeck />
+  </main>
 </template>
 
 <style scoped>
