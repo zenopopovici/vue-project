@@ -1,5 +1,18 @@
 <script>
+import { useTheme } from "vuetify";
+
 export default {
+  setup() {
+    const theme = useTheme();
+
+    return {
+      theme,
+      toggleTheme: () =>
+        (theme.global.name.value = theme.global.current.value.dark
+          ? "light"
+          : "dark"),
+    };
+  },
   data() {
     return {
       deckData: null,
@@ -44,7 +57,9 @@ export default {
 <template>
   <v-app>
     <v-navigation-drawer>...</v-navigation-drawer>
-    <v-app-bar title="My Deck"></v-app-bar>
+    <v-app-bar title="My Deck">
+      <v-btn @click="toggleTheme">Toggle Theme</v-btn>
+    </v-app-bar>
 
     <v-main>
       <v-btn @click="fetchDeck"
