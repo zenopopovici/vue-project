@@ -68,7 +68,7 @@ export default {
         v-for="(card, index) in deckCardsData"
         :key="index"
         class="d-flex child-flex"
-        cols="3"
+        cols="2"
       >
         <v-img
           class="bg-grey-lighten-2"
@@ -76,14 +76,6 @@ export default {
           :aspect-ratio="0"
           :src="card.image"
         />
-        <template v-slot:placeholder>
-          <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular
-              indeterminate
-              color="grey-lighten-5"
-            ></v-progress-circular>
-          </v-row>
-        </template>
       </v-col>
     </v-row>
   </div>
