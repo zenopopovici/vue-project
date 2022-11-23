@@ -36,11 +36,7 @@ export default {
       this.currentPath = window.location.hash;
     });
   },
-  methods: {
-    goTo(location) {
-      return (window.location = location);
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -48,8 +44,8 @@ export default {
   <main>
     <v-app>
       <v-app-bar title="My Deck">
-        <v-btn @click="goTo('#/')" icon="mdi-home"></v-btn>
-        <v-btn @click="goTo('#/deck')" icon="mdi-cards"></v-btn>
+        <v-btn href="#/" icon="mdi-home"></v-btn>
+        <v-btn href="#/deck" icon="mdi-cards"></v-btn>
         <v-btn @click="toggleTheme" icon="mdi-animation"></v-btn>
       </v-app-bar>
       <v-main>
