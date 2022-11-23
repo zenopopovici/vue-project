@@ -42,21 +42,50 @@ export default {
 </script>
 
 <template>
-  <h2>My Deck</h2>
-  <button @click="fetchDeck">Get my Deck</button>
+  <v-btn @click="fetchDeck"
+    >Get my Deck <v-icon icon="mdi-plus"></v-icon
+  ></v-btn>
   <div v-if="deckData">
-    <button @click="fetchCard(deckData.deck_id)">Get my Card</button>
+    <v-btn variant="outlined" @click="fetchCard(deckData.deck_id)"
+      >Get my Card<v-icon icon="mdi-atom"></v-icon
+    ></v-btn>
     <div v-if="cardData">
-      <img :src="cardData.cards[0].image" />
+      <v-img
+        class="bg-white"
+        width="100"
+        :aspect-ratio="1"
+        :src="cardData.cards[0].image"
+      />
     </div>
-    <button @click="fetchAllCards(deckData.deck_id, deckData.remaining)">
-      Get all Cards
-    </button>
-    <div v-if="deckCardsData.length > 0">
-      <div v-for="(card, index) in deckCardsData" :key="index">
-        <img :src="card.image" />
-      </div>
-    </div>
+    <v-btn
+      variant="tonal"
+      @click="fetchAllCards(deckData.deck_id, deckData.remaining)"
+    >
+      Get all Cards <v-icon icon="mdi-auto-fix"></v-icon>
+    </v-btn>
+    <v-row v-if="deckCardsData.length > 0">
+      <v-col
+        v-for="(card, index) in deckCardsData"
+        :key="index"
+        class="d-flex child-flex"
+        cols="3"
+      >
+        <v-img
+          class="bg-grey-lighten-2"
+          cover
+          :aspect-ratio="0"
+          :src="card.image"
+        />
+        <template v-slot:placeholder>
+          <v-row class="fill-height ma-0" align="center" justify="center">
+            <v-progress-circular
+              indeterminate
+              color="grey-lighten-5"
+            ></v-progress-circular>
+          </v-row>
+        </template>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
